@@ -14,6 +14,8 @@ class Destination {
     var details: String
     var date: Date
     var priority: Int
+    @Relationship(deleteRule: .cascade) var sights = [Sight]()
+    // cascade means when I delete destination object, delete all it's sights too... like whatever is stored in Sight delete it. 
     
     init(name: String = "", details: String = "", date: Date = .now, priority: Int = 2) {
         self.name = name
